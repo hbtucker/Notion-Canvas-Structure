@@ -94,21 +94,31 @@
     const height = width;
     const radius = width / 8;
 
-    const richerColors = [
-        "#c7522a", 
-        "#e5c185",
-        "#f1d5bf",
-        "#74a892", 
-        "#008585", 
-        "#809bce", 
-        "#95b8d1", 
-        "#b8e0d4", 
-        "#d6eadf",
+    const notionColors = [
+        "#191919",
+        "#252525",
+        "#2E2724",
+        "#36291F",
+        "#372E20",
+        "#242B26",
+        "#1F282D",
+        "#2A2430",
+        "#2E2328",
+        "#332523",
+ //       "#c7522a", 
+ //       "#e5c185",
+ //       "#f1d5bf",
+ //       "#74a892", 
+ //       "#008585", 
+//      "#809bce", 
+//        "#95b8d1", 
+//        "#b8e0d4", 
+//        "#d6eadf",
     ];
 
     const color = d3.scaleOrdinal()
         .domain(data.children.map(d => d.name))
-        .range(richerColors);
+        .range(notionColors);
 
     const partition = data => {
         const root = d3.hierarchy(data)
