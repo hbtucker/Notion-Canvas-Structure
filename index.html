@@ -163,16 +163,16 @@
     const radius = width / 8;
 
     const notionColors = [
-    { name: 'Primary Green', hex: '#4F9768' },
-    { name: 'Complementary Coral', hex: '#F26D54' },
-    { name: 'Muted Teal', hex: '#68A7AD' },
-    { name: 'Soft Yellow', hex: '#F2D096' },
-    { name: 'Deep Blue', hex: '#345995' },
-    { name: 'Light Sage', hex: '#9DC88D' },
-    { name: 'Warm Beige', hex: '#E6D1B1' },
-    { name: 'Dusty Rose', hex: '#C38D94' },
-    { name: 'Pale Sky', hex: '#B8D0EB' },
-    ];
+    "#4F9768", 
+    "#F26D54",
+    "#68A7AD",
+    "#F2D096", 
+    "#345995", 
+    "#9DC88D", 
+    "#E6D1B1", 
+    "#C38D94", 
+    "#B8D0EB",
+];
 
     const color = d3.scaleOrdinal()
         .domain(data.children.map(d => d.name))
