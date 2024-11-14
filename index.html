@@ -14,8 +14,9 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #191919;
-            color: white;
+            background-color: transparent;
+            color: #191919;
+            transition: color 0.3s ease;
         }
         #chart {
             width: 100%;
@@ -26,9 +27,9 @@
             position: relative;
         }
         .slice-label {
-            font-size: 18px;
-            pointer-events: none;
-            fill: white;
+            font-size: 20px;
+            fill: currentColor;
+            transition: fill 0.3s ease;
         }
         .tooltip {
             position: absolute;
@@ -37,24 +38,33 @@
             border-radius: 4px;
             padding: 8px;
             font-size: 18px;
-            max-width: 200px;
+            max-width: 250px;
             pointer-events: none;
-            transition: opacity 0.3s;
-            color: black;
+            transition: opacity 0.3s, background-color 0.3s, color 0.3s;
+            color: #191919;
         }
         #logo {
             position: absolute;
             top: 10px;
             right: 10px;
-            width: 75px;
+            width: 70px;
             height: auto;
             z-index: 1000;
+        }
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: white;
+            }
+            .tooltip {
+                background-color: rgba(0, 0, 0, 0.8);
+                color: white;
+            }
         }
     </style>
 </head>
 <body>
 <div id="chart">
-    <img id="logo" src="dark-logo.png" alt="Logo">
+    <img id="logo" src="dark-logo.png" alt="logo.png">
 </div>
 <script>
     const data = {
@@ -343,7 +353,7 @@
         .attr('dy', '0.35em')
         .attr('font-size', '20px')
         .attr('pointer-events', 'none')
-        .attr('fill', 'white')
+        .attr('class', 'slice-label')
         .text(data.name)
         .call(wrapCenterText, radius * 1.5);
 
@@ -403,6 +413,16 @@
         centerLabel.text(p.depth ? p.data.name : data.name)
             .call(wrapCenterText, radius * 1.5);
     }
+
+    function updateColorScheme() {
+        const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        const logo = document.getElementById('logo');
+        logo.src = isDarkMode ? 'dark-logo.png' : 'logo.png';
+    }
+
+    updateColorScheme();
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(updateColorScheme);
 </script>
 </body>
 </html>
