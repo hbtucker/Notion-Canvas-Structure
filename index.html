@@ -64,7 +64,7 @@
 </head>
 <body>
 <div id="chart">
-    <img id="logo" src="dark-logo.png" alt="logo">
+    <img id="logo" src="dark-logo.png" alt="logo.png">
 </div>
 <script>
     const data = {
@@ -418,7 +418,7 @@
         const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         
         const logo = document.getElementById('logo');
-        logo.src = isDarkMode ? 'dark-logo.png' : 'light-logo.png';
+        logo.src = isDarkMode ? 'dark-logo.png' : 'logo.png';
     }
 
     updateColorScheme();
