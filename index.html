@@ -64,7 +64,7 @@
 </head>
 <body>
 <div id="chart">
-    <img id="logo" src="dark-logo.png" alt="Logo">
+    <img id="logo" src="dark-logo.png" alt="logo">
 </div>
 <script>
     const data = {
@@ -353,7 +353,7 @@
         .attr('dy', '0.35em')
         .attr('font-size', '20px')
         .attr('pointer-events', 'none')
-        .attr('fill', 'white')
+        .attr('class', 'slice-label')
         .text(data.name)
         .call(wrapCenterText, radius * 1.5);
 
